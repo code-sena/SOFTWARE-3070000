@@ -34,13 +34,102 @@ La ruta `/api/person` permite gestionar información de personas a través de op
 
 ### 🔄 Endpoints y Métodos
 
-| Método         | Verbo HTTP | Descripción                                       | Ejemplo de Endpoint         |
-|----------------|-------------|--------------------------------------------------|-----------------------------|
-| `all`          | `GET`       | Obtiene la lista completa de personas            | `GET /api/person`           |
-| `findById`     | `GET`       | Consulta los datos de una persona por su ID      | `GET /api/person/{id}`      |
-| `deleteById`   | `DELETE`    | Elimina una persona específica por su ID         | `DELETE /api/person/{id}`   |
-| `save`         | `POST`      | Crea una nueva persona con los datos enviados    | `POST /api/person`          |
-| `update`       | `PUT`       | Actualiza todos los datos de una persona existente | `PUT /api/person/{id}`    |
+| Método       | Verbo HTTP | Descripción                                         | Endpoint Ejemplo           |
+|--------------|-------------|------------------------------------------------------|-----------------------------|
+| `all`        | `GET`       | Obtiene la lista completa de personas                | `/api/person`               |
+| `findById`   | `GET`       | Consulta los datos de una persona por su ID         | `/api/person/{id}`          |
+| `deleteById` | `DELETE`    | Elimina una persona específica por su ID            | `/api/person/{id}`          |
+| `save`       | `POST`      | Crea una nueva persona con los datos enviados       | `/api/person`               |
+| `update`     | `PUT`       | Actualiza todos los datos de una persona existente  | `/api/person/{id}`          |
+
+---
+
+### 📥 Cuerpo de Solicitud y 📤 Ejemplo de Respuesta
+
+#### 🔹 `GET /api/person`
+- **Body de solicitud:** _No aplica_
+- **Respuesta:**
+```json
+[
+  {
+    "id": 1,
+    "name": "Ana",
+    "lastname": "Pérez",
+    "phone": "3216549870",
+    "email": "ana@email.com",
+    "estatus": 1
+  }
+]
+```
+
+#### 🔹 `GET /api/person/{id}`
+- **Body de solicitud:** _No aplica_
+- **Respuesta:**
+```json
+{
+  "id": 1,
+  "name": "Ana",
+  "lastname": "Pérez",
+  "phone": "3216549870",
+  "email": "ana@email.com",
+  "estatus": 1
+}
+```
+
+#### 🔹 `DELETE /api/person/{id}`
+- **Body de solicitud:** _No aplica_
+- **Respuesta:**
+```json
+{
+  "message": "Persona eliminada exitosamente"
+}
+```
+
+#### 🔹 `POST /api/person`
+- **Body de solicitud:**
+```json
+{
+  "name": "Carlos",
+  "lastname": "López",
+  "phone": "3001234567",
+  "email": "carlos@email.com",
+  "estatus": 1
+}
+```
+- **Respuesta:**
+```json
+{
+  "id": 5,
+  "name": "Carlos",
+  "lastname": "López",
+  "phone": "3001234567",
+  "email": "carlos@email.com",
+  "estatus": 1
+}
+```
+
+#### 🔹 `PUT /api/person/{id}`
+- **Body de solicitud:**
+```json
+{
+  "name": "Carlos A.",
+  "lastname": "López",
+  "phone": "3009876543",
+  "email": "carlos.a@email.com",
+  "estatus": 1
+}
+```
+- **Respuesta:**
+```json
+{
+  "id": 5,
+  "name": "Carlos A.",
+  "lastname": "López",
+  "phone": "3009876543",
+  "email": "carlos.a@email.com",
+  "estatus": 1
+}
+```
 
 ---
 
