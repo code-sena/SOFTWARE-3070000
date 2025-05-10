@@ -1,0 +1,67 @@
+@startuml
+
+class person {
+    +id: INT
+    +name: VARCHAR(100)
+    +lastname: VARCHAR(100)
+    +phone: VARCHAR(20)
+    +email: VARCHAR(100)
+    +estatus: TINYINT
+}
+
+class rol {
+    +id: INT
+    +name: VARCHAR(50)
+    +descripcion: TEXT
+    +estatus: TINYINT
+}
+
+class user {
+    +id: INT
+    +user: VARCHAR(50)
+    +password: VARCHAR(255)
+    +person_id: INT
+    +rol_id: INT
+    +estatus: TINYINT
+}
+
+class product {
+    +id: INT
+    +name: VARCHAR(100)
+    +descripcion: TEXT
+    +estatus: TINYINT
+}
+
+class inventory {
+    +id: INT
+    +product_id: INT
+    +stock: INT
+    +unit_value: DECIMAL(10,2)
+    +estatus: TINYINT
+}
+
+class bill {
+    +id: INT
+    +date: DATETIME
+    +total_value: DECIMAL(12,2)
+    +person_id: INT
+    +estatus: TINYINT
+}
+
+class bill_detail {
+    +id: INT
+    +bill_id: INT
+    +product_id: INT
+    +count: INT
+    +value: DECIMAL(10,2)
+    +estatus: TINYINT
+}
+
+person --* user 
+rol --*  user 
+product --o inventory 
+person --* bill 
+bill --* bill_detail 
+product --* bill_detail 
+
+@enduml
